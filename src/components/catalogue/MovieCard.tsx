@@ -2,21 +2,18 @@ import { Movie } from '../../types/Movie'
 
 interface MovieCardProps {
 	movie: Movie
+	rentMovie: (rentedMovie: Movie) => void
 }
 
 
-const MovieCard = (props: MovieCardProps) => ( 
+const MovieCard = ({ movie, rentMovie }: MovieCardProps) => ( 
 
 	<div className="movie-card">
 
-		<h2> {props.movie.title} </h2>
-			<p> {props.movie.director} </p>
-			<button> Rent </button>
+		<h2> {movie.title} </h2>
+			<p> {movie.director} </p>
+			<button onClick={() => rentMovie(movie)} > Rent </button>
 	</div>
-
-	
-
-
 )
 
 export default MovieCard

@@ -19,9 +19,7 @@ import MovieCard from './MovieCard'
 				{ borrowed.map(movie => <MovieCard movie= {movie} /> ) }
 				<div className="movie-card">
 
-					<h2>Title</h2>
-					<p> Director </p>
-					<button> Return </button>
+				
 
 				</div>
 

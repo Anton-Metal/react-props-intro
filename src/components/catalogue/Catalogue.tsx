@@ -18,7 +18,18 @@ const movies: Movie[] = [
 
 	const Catalogue = () => {
 
-		const [movieList, setMovieList] = useState (movies)
+		const [movieList, setMovieList] = useState(movies)
+
+		// till för att låna ut en film
+		const rentMovie = (rentedMovie: Movie) => {
+			// en kopia av movieList utan den man trcykte på 
+										// gemför objekten(movie) med id 
+			let newList = movieList.filter(movie => movie.id ! ==rentedMovie.id) 
+
+			setMovieList(newList)
+
+		}
+
 		return (  
 
 			<section className="border">
@@ -26,7 +37,8 @@ const movies: Movie[] = [
 
 					<div className="movie-container">
 
-					{ movieList.map(movie => (<MovieCard movie={movie} />))}
+					{ movieList.map(movie => (<MovieCard movie={movie} 
+					rentMovie={rentMovie} />))}
 						
 					</div>
 
