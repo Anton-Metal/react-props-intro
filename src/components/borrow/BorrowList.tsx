@@ -1,14 +1,15 @@
-import { useState } from "react"
+
 import { Movie } from '../../types/Movie'
 import MovieCard from './MovieCard'
 
+interface props{
 
+	borrowed: Movie[]
+	
+}
 	
 	
-	const BorrowList = () => {
-
-		//variabel som håller ordning på vilka böcker man har lånat 
-		const [borrowed, setBorrowed] = useState<Movie[]>([])
+	const BorrowList = ({ borrowed }: props) => {
 
 		return (
 
@@ -16,17 +17,11 @@ import MovieCard from './MovieCard'
 			<h1>Catalog</h1>
 
 			<div className="movie-container">
-				{ borrowed.map(movie => <MovieCard movie= {movie} /> ) }
-				<div className="movie-card">
-
+				{ borrowed.map(movie => <MovieCard movie={movie} key={movie.id}/> ) }
 				
-
-				</div>
-
 			</div>
-
 		</section>
 
-)
+	)
 }
 export default BorrowList

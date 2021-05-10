@@ -14,9 +14,11 @@ const movies: Movie[] = [
 ]
 
 
+interface Props {
+	liftHandleRentedMovie: (movie: Movie) => void
+}
 
-
-	const Catalogue = () => {
+	const Catalogue = ({ liftHandleRentedMovie }: Props) => {
 
 		const [movieList, setMovieList] = useState(movies)
 
@@ -24,9 +26,12 @@ const movies: Movie[] = [
 		const rentMovie = (rentedMovie: Movie) => {
 			// en kopia av movieList utan den man trcykte på 
 										// gemför objekten(movie) med id 
-			let newList = movieList.filter(movie => movie.id ! ==rentedMovie.id) 
+			let newList = movieList.filter(movie => movie.id ! === rentedMovie.id) 
 
 			setMovieList(newList)
+
+			//här anroppar man vilken film man har klickan på
+			liftHandleRentedMovie(rentedMovie)
 
 		}
 
@@ -38,7 +43,7 @@ const movies: Movie[] = [
 					<div className="movie-container">
 
 					{ movieList.map(movie => (<MovieCard movie={movie} 
-					rentMovie={rentMovie} />))}
+					rentMovie={rentMovie} key={movie.id}/>))}
 						
 					</div>
 
