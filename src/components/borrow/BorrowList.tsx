@@ -14,10 +14,10 @@ interface props{
 		return (
 
 		<section className="border">
-			<h1>Catalog</h1>
+			<h1>Rented</h1>
 
 			<div className="movie-container">
-				{ borrowed.map(movie => <MovieCard movie={movie} key={movie.id}/> ) }
+				{ borrowed.map(movie => <MovieCard movie={movie} key={movie.id}/>)}
 				
 			</div>
 		</section>

@@ -26,7 +26,7 @@ interface Props {
 		const rentMovie = (rentedMovie: Movie) => {
 			// en kopia av movieList utan den man trcykte på 
 										// gemför objekten(movie) med id 
-			let newList = movieList.filter(movie => movie.id ! === rentedMovie.id) 
+			let newList = movieList.filter(movie => movie.id !== rentedMovie.id) 
 
 			setMovieList(newList)
 
@@ -42,8 +42,8 @@ interface Props {
 
 					<div className="movie-container">
 
-					{ movieList.map(movie => (<MovieCard movie={movie} 
-					rentMovie={rentMovie} key={movie.id}/>))}
+					{ movieList.map(movie => <MovieCard movie={movie} 
+					rentMovie={rentMovie} key={movie.id}/>)}
 						
 					</div>
 

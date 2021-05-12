@@ -3,6 +3,7 @@ import { Movie } from '../../types/Movie'
 interface MovieCardProps {
 	movie: Movie
 	
+	
 }
 
 
